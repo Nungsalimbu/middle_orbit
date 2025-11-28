@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Hero Section -->
+<div class="hero-bg text-white py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6">Find Your Dream Job Overseas</h1>
+        <p class="text-xl md:text-2xl mb-8 text-gray-200">Trusted by thousands of job seekers and top employers in the
+            Gulf & Malaysia.</p>
+
+        <!-- Search Bar -->
+        <div class="bg-white p-4 rounded-lg shadow-lg max-w-3xl mx-auto text-gray-800">
+            <form action="/jobs/" method="get" class="flex flex-col md:flex-row gap-4">
+                <div class="flex-grow">
+                    <input type="text" name="q" placeholder="Job title, keyword..."
+                        class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500">
+                </div>
+                <div class="md:w-1/4">
+                    <select name="country"
+                        class="w-full px-4 py-3 rounded-md border border-gray-300 focus:outline-none focus:border-blue-500 bg-white">
+                        <option value="">All Countries</option>
+                        <option value="UAE">UAE</option>
+                        <option value="Qatar">Qatar</option>
+                        <option value="Saudi Arabia">Saudi Arabia</option>
+                        <option value="Malaysia">Malaysia</option>
+                    </select>
+                </div>
+                <button type="submit"
+                    class="bg-blue-600 text-white px-8 py-3 rounded-md font-semibold hover:bg-blue-700 transition">Search</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Featured Jobs -->
+<div class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Latest Opportunities</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for job in featured_jobs %}
+            <div class="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition p-6">
+                <div class="flex justify-between items-start mb-4">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900">{{ job.title }}</h3>
+                        <p class="text-gray-600">{{ job.employer.name }}</p>
+                    </div>
+                    <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">{{ job.country
+                        }}</span>
+                </div>
+                <div class="mb-4">
+                    <p class="text-gray-500 text-sm mb-2"><span class="font-medium">Salary:</span> {{ job.salary }}</p>
+                    <p class="text-gray-500 text-sm"><span class="font-medium">Vacancies:</span> {{ job.vacancies }}</p>
+                </div>
+                <a href="/jobs/{{ job.slug }}/"
+                    class="block w-full text-center bg-gray-50 text-blue-600 font-semibold py-2 rounded-lg hover:bg-blue-50 transition border border-gray-200">View
+                    Details</a>
+            </div>
+            {% empty %}
+            <div class="col-span-3 text-center text-gray-500 py-12">
+                No jobs available at the moment. Please check back later.
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="text-center mt-12">
+            <a href="/jobs/"
+                class="inline-block border-2 border-blue-600 text-blue-600 font-semibold px-8 py-3 rounded-md hover:bg-blue-600 hover:text-white transition">View
+                All Jobs</a>
+        </div>
+    </div>
+</div>
+
+<!-- Why Choose Us -->
+<div class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-900">Why Choose Middle Orbit?</h2>
+            <p class="mt-4 text-gray-600">We are committed to ethical recruitment and transparency.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div class="p-6">
+                <div
+                    class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Government Registered</h3>
+                <p class="text-gray-600">Fully licensed by the Department of Foreign Employment, Nepal.</p>
+            </div>
+            <div class="p-6">
+                <div
+                    class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Zero Cost Recruitment</h3>
+                <p class="text-gray-600">We promote zero cost hiring for eligible candidates.</p>
+            </div>
+            <div class="p-6">
+                <div
+                    class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <h3 class="text-xl font-semibold mb-2">Global Network</h3>
+                <p class="text-gray-600">Strong partnerships with top companies in Gulf & Malaysia.</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

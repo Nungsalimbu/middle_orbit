@@ -1,0 +1,9 @@
+Django>=4.2,<5.0
+djangorestframework
+django-filter
+django-allauth
+pillow
+gunicorn
+psycopg2-binary
+dj-database-url
+whitenoise
