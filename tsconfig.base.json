@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "NodeNext",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "resolveJsonModule": true,
+    "noImplicitAny": false,
+    "baseUrl": ".",
+    "paths": {
+      "@middleorbit/ui/*": [
+        "apps/web/src/*"
+      ],
+      "@middleorbit/api/*": [
+        "apps/api/src/*"
+      ]
+    }
+  }
+}
+
