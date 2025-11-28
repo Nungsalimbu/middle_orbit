@@ -1,0 +1,14 @@
+node_modules
+.turbo
+.next
+dist
+coverage
+.env
+.env.*
+*.log
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+.DS_Store
+Thumbs.db
+
