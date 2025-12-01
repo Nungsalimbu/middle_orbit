@@ -35,9 +35,12 @@ export function JobList() {
             <Link href={`/jobs/${job.slug}`} className="rounded-full bg-midnight px-4 py-2 text-sm font-semibold text-white">
               View details
             </Link>
-            <button className="rounded-full border border-midnight px-4 py-2 text-sm font-semibold text-midnight">
+            <Link
+              href={`/apply?job=${encodeURIComponent(job.title)}&country=${encodeURIComponent(job.country)}&sector=${encodeURIComponent(job.sector)}`}
+              className="rounded-full border border-midnight px-4 py-2 text-sm font-semibold text-midnight hover:bg-midnight hover:text-white transition-colors"
+            >
               Quick apply
-            </button>
+            </Link>
           </div>
         </article>
       ))}

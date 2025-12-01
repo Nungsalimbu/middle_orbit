@@ -50,7 +50,10 @@ export function JobDetail({ job }: { job: Job }) {
         <p className="text-xs uppercase tracking-[0.4em] text-white/70">Apply now</p>
         <p className="text-lg font-semibold">Complete the secure form and we will call within 24 hours.</p>
         <div className="flex flex-wrap gap-3">
-          <Link href="/apply" className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-midnight">
+          <Link
+            href={`/apply?job=${encodeURIComponent(job.title)}&country=${encodeURIComponent(job.country)}&sector=${encodeURIComponent(job.sector)}`}
+            className="rounded-full bg-white px-4 py-2 text-sm font-semibold text-midnight"
+          >
             Fill online form
           </Link>
           <a
