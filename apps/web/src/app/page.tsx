@@ -7,6 +7,10 @@ import { Hero } from "@/components/hero";
 import { InquiryForm } from "@/components/forms/inquiry-form";
 import { JobList } from "@/components/jobs/job-list";
 import { Testimonials } from "@/components/testimonials";
+import { AboutSection } from "@/components/about-section";
+import { RecruitmentProcess } from "@/components/recruitment-process";
+import { TeamSection } from "@/components/team-section";
+import { RecruiterContact } from "@/components/recruiter-contact";
 import { buildMetadata } from "@/lib/metadata";
 
 export const metadata = buildMetadata({
@@ -21,6 +25,7 @@ export default function HomePage() {
     <div className="space-y-12 pb-16">
       <Hero />
       <div className="page-shell space-y-12">
+        <AboutSection />
         <LiveStatusDashboard />
         <section className="space-y-4">
           <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
@@ -34,6 +39,9 @@ export default function HomePage() {
           </div>
           <JobList />
         </section>
+        <RecruitmentProcess />
+        <RecruiterContact />
+        <TeamSection />
         <CountryDemandGrid />
         <div className="grid gap-6 lg:grid-cols-2">
           <DocumentChecklist />

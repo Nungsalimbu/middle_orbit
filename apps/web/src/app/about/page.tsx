@@ -1,5 +1,7 @@
 import { PageBlueprint } from "@/components/page-blueprint";
 import type { SectionDefinition } from "@/components/sections";
+import { TeamSection } from "@/components/team-section";
+import { RecruitmentProcess } from "@/components/recruitment-process";
 import { buildMetadata } from "@/lib/metadata";
 
 export const metadata = buildMetadata({
@@ -55,11 +57,17 @@ const sections: SectionDefinition[] = [
 
 export default function AboutPage() {
   return (
-    <PageBlueprint
-      title="Inside MiddleOrbit"
-      description="A manpower intelligence lab shipping AI-first transparency tooling."
-      sections={sections}
-    />
+    <div className="space-y-16 pb-16">
+      <PageBlueprint
+        title="Inside MiddleOrbit"
+        description="A manpower intelligence lab shipping AI-first transparency tooling."
+        sections={sections}
+      />
+      <div className="page-shell space-y-16">
+        <RecruitmentProcess />
+        <TeamSection />
+      </div>
+    </div>
   );
 }
 
